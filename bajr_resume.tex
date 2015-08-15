@@ -1,7 +1,4 @@
 \documentclass[letterpaper,11pt]{article}
-% TODO:
-%   Automate Work History section, Achievements, and Skills
-%   
 
 % Packages
 \usepackage[T1]{fontenc}
@@ -11,9 +8,6 @@
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 \usepackage{enumitem}
-
-\tracingmacros 1
-\tracingifs 1
 
 % General Macro Definitions
 \def\name{\Huge \bfseries \scshape Bradley Rasmussen}
@@ -25,37 +19,18 @@
 % Education Layout Definition
 % Format:
 %   \education
-%     {Degree}{School}{Dates}
-%     {Degree}{School}{Dates}
-%     etc...
-%   \endeducation
-\makeatletter
-  \newcommand{\education}{%
-    \begin{tabular}{llr}
-    \@schoolenti
-  }
-  % This line allows this macro to work without arguments
-  \newcommand\@schoolenti{
-    \@ifnextchar\endeducation{
-      \@endeducation
-    } {
-      \@schoolentry
-    }
-  }
-  % Lay out education on one line
-  \newcommand\@schoolentry[3]{% {Degree}{School}{Dates}
-    \noindent\textbf{#1} & #2 & \emph{#3} \vspace{3pt}
-    \@ifnextchar\endeducation{
-      \@endeducation
-    } {
-      \\
-      \@schoolentry
-    }
-  }
-  \newcommand\@endeducation[1]{%
-    \end{tabular}
-  }
-\makeatother
+%     \schoolentry{Degree}{School}{Dates}
+%   \fineducation
+\newcommand{\education}{%
+  \begin{tabular}{ llr }
+}
+% Lay out education on one line
+\newcommand{\schoolentry}[3]{% {Degree}{School}{Dates}
+  \textbf{#1} & #2 & \emph{#3} \vspace{3pt} \\
+}
+\newcommand{\fineducation}{%
+  \end{tabular}
+}
 
 % Work Experience Layout Definition
 % Format:
@@ -66,13 +41,13 @@
 \newcounter{workdepth}
 \setcounter{workdepth}{0}
 
-\newcommand{\checkdepth}[1]{
-  \ifnum\value{workdepth}>#1
+\newcommand{\checkdepth}[1]{% Argument is the desired depth
+  \ifnum\value{workdepth}>#1% Check if we are deeper than desired
     \addtocounter{workdepth}{-1}
     \end{itemize}
     \checkdepth{#1} % Keep going until desired depth
   \fi
-  \ifnum\value{workdepth}<#1
+  \ifnum\value{workdepth}<#1% Check if we are shallower than desired
     \ifnum\value{workdepth}<2
       \begin{itemize}[nosep,itemindent=-1cm,label=]
     \fi
@@ -80,25 +55,22 @@
       \begin{itemize}[nosep,itemindent=-1cm,label=$\bullet$]
     \fi
     \stepcounter{workdepth}
-    \checkdepth{#1} % Keep going until desired depth
+    \checkdepth{#1}% Keep going until desired depth
   \fi
+  % Nothing needs to be done if we are at desired depth
 }
-
 \newcommand{\employer}[1]{
   \checkdepth{1}
   \item{\scshape \bfseries#1}
 }
-
 \newcommand{\position}[2]{
   \checkdepth{2}
   \item {\textsc{#1} \hfill \textit{#2}}
 }
-
 \newcommand{\duty}[1]{
   \checkdepth{3}
   \item #1
 }
-
 \newcommand{\finemployment}{
   \checkdepth{0}
 }
@@ -119,49 +91,6 @@
 % Section formatting
 \titleformat{\section}[hang]{\Large \scshape \bfseries}{}{-1ex}{}[\hrule]
 
-
-% Experience: Computer Action Team -- Portland State University : March 2011 through current
-%                 Administrative Assistant -- December 2012 through current
-%                     - Facilitated communication between department teams and administration.
-%                     - Managed keycard access system for 3000+ students.
-%                     - Assisted department with purchasing, inventory, and records keeping.
-%                 Volunteer Coordinator -- March 2013 through current
-%                     - Managed group of 120 user support volunteers.
-%                     - Evaluated volunteer performance and improvement.
-%                     - Led weekly meetings and scheduled events and IT training classes.
-%                 User Support Specialist -- February 2011 through current
-%                     - Communicated with users at desk and via phone and e-mail.
-%                     - Resolved user problems in a friendly, professional manner.
-%                     - Operated ticketing system 
-%             Riverstone Residential Group
-%                 Concierge --  May 2008 through March 2011
-%                     - Provided superb customer service for downtown high-rise apartment complex
-%                     - Maintained database of resident contact information
-%                     - 
-%             Portland Patrol Services
-%                 Unarmed Security Officer -- November 2005 through May 2008
-%                     - Monitored variety of sites for 
-%                     - Provided detailed eyewitness account of incidents
-%                     - Maintained detailed notebook of activities and events
-%                     - Appropriately deescalated and reported public disturbances
-
-% Languages: C, C++, Java, Python, LaTeX
-
-% Education: High School Diploma -- Kahuku High \& Intermediate School -- June 2005
-%            Bachelor of Science: Computer Science -- Portland State University -- In Progress
-
-% Achievements: 
-%     ACM Club: PSU Chapter President
-%     Built a Dice-rolling IRC bot in C
-%     Bicycled from Portland, OR to Prince Rupert, BC Summer of 2012
-%     Pacific and Asian Affairs Council Freeman Scholarship Recipient, 2004
-%     Center for Civic Education's ``We The People'' Competition National finalist, 2005
-
-% References:
-%     Janaka Jayawardena
-%     Spencer Krum
-%     William Van Hevelingen?
-
 \begin{document}
 \section{Objective} \objective
 
@@ -169,22 +98,21 @@
   \begin{itemize}
     %\item Expert in:
     \item Proficient in: C, C$++$, Java, \LaTeX
-    \item Basic Understanding of: Python, x86-64 GAS Assembler, Git
+    \item Basic Understanding of: Git, Bash, Python, x86-64 GAS Assembler
           %C$\sharp$
   \end{itemize}
 
 \section{Education}
   \education
-    {B.S., Computer Science}{Portland State University}{Expected Graduation: June 2016}
-    {High School Diploma}{Kahuku High \& Intermediate School}{Graduated: 2005}
-  \banana
+    \schoolentry{B.S., Computer Science}{Portland State University}{Expected Graduation: June 2016}
+    \schoolentry{High School Diploma}{Kahuku High \& Intermediate School}{Graduated: 2005}
+  \fineducation
 
 \section{Projects \& Volunteering}
   \begin{itemize}[nosep,label=$\bullet$]
     \item Wrote a Dice-rolling IRC bot in C
     \item ACM Portland Statue University Chapter President, 2012
     \item Volunter User Support for Computer Action Team. September 2011 -- December 2012
-  %  \item  Bicycled from Portland, OR to Prince Rupert, BC Summer of 2012
   \end{itemize}
 
 \section{Work History}
@@ -203,11 +131,9 @@
   \employer{Riverstone Residential Group}
     \position{Concierge}{May 2008 -- March 2011}
       \duty{Provided superb customer service for downtown high-rise apartment complex}
-      \duty{Maintained database of resident contact information}
   \employer{Portland Patrol Services}
     \position{Unarmed Security Officer}{November 2005 -- May 2008}
       \duty{Monitored variety of sites for unusual activity and provided general security presence}
-      \duty{Maintained detailed notebook of activities and events}
   \finemployment
 
 %\section{Publications & Projects}
