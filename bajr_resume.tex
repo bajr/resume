@@ -1,9 +1,9 @@
-\documentclass[letterpaper,11pt]{article}
+\documentclass[letterpaper,12pt]{article}
 
 % Packages
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[includeheadfoot,left=1.5cm,right=1.5cm,top=1.5cm,bottom=2cm]{geometry}
+\usepackage[includeheadfoot,left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm]{geometry}
 \usepackage[colorlinks=true,urlcolor=black,linkcolor=black]{hyperref}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
@@ -14,6 +14,7 @@
 \def\phone{(503) 896-4211}
 \def\email{\texttt{rasmbj@pdx.edu}}
 \def\github{\texttt{http://github.com/bajr/}}
+\def\address{Portland, OR}
 \def\objective{Dedicated computer science student seeking internship in software development}
 
 % Education Layout Definition
@@ -91,7 +92,14 @@
 \titleformat{\section}[hang]{\Large \scshape \bfseries}{}{-1ex}{}[\hrule]
 
 \begin{document}
-\section{Objective} \objective
+%\section{Objective} \objective
+
+
+\section{Education}
+  \education
+    \schoolentry{B.S., Computer Science}{Portland State University}{Expected Graduation: January 2017}
+    \schoolentry{High School Diploma}{Kahuku High \& Intermediate School}{Graduated: 2005}
+  \fineducation
 
 \section{Skills}
   \begin{itemize}
@@ -102,17 +110,11 @@
           %C$\sharp$
   \end{itemize}
 
-\section{Education}
-  \education
-    \schoolentry{B.S., Computer Science}{Portland State University}{Expected Graduation: January 2017}
-    \schoolentry{High School Diploma}{Kahuku High \& Intermediate School}{Graduated: 2005}
-  \fineducation
-
 \section{Projects \& Volunteering}
-  \begin{itemize}[nosep,label=$\bullet$]
+  \begin{itemize}
     \item Wrote a Dice-rolling IRC bot in C
+    \item User Support Volunteer for PSU Computer Action Team. September 2011 -- December 2012
     \item Association for Computing Machinery -- Portland State University Chapter President, 2012
-    \item Volunteer User Support for Computer Action Team. September 2011 -- December 2012
   \end{itemize}
 
 \section{Work History}
