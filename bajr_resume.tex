@@ -12,7 +12,7 @@
 % General Macro Definitions
 \def\name{\Huge \bfseries \scshape Bradley Rasmussen}
 \def\phone{(503) 896-4211}
-\def\email{\texttt{rasmbj@pdx.edu}}
+\def\email{rasmbj@pdx.edu}
 \def\github{\texttt{http://github.com/bajr/}}
 \def\address{Portland, OR}
 \def\objective{Dedicated computer science student seeking internship in software development}
@@ -26,8 +26,9 @@
   \begin{tabular}{ llr }
 }
 % Lay out education on one line
-\newcommand{\schoolentry}[3]{% {Degree}{School}{Dates}
-  \textbf{#1} & #2 & \emph{#3} \vspace{3pt} \\
+\newcommand{\schoolentry}[5]{% {Degree}{School}{Dates}
+  \textbf{#1} & #2 & \emph{#3} \\
+  & #4 & \hspace{-1cm} #5 \vspace{3pt} \\
 }
 \newcommand{\fineducation}{%
   \end{tabular}
@@ -80,11 +81,9 @@
 \fancypagestyle{resume}{
   \fancyhf{}
   \headsep=1cm
-  \headheight=1cm
-  \renewcommand{\headrulewidth}{0.5pt}
   \renewcommand{\footrulewidth}{0cm}
   \fancyhead[L]{\name}
-  \fancyhead[R]{\phone \ \ $\bullet$ \ \ \email \\ \github}
+  \fancyhead[R]{\phone \ \ $\bullet$ \ \ \email \\ Portland, OR}
 }
 \pagestyle{resume}
 
@@ -94,49 +93,51 @@
 \begin{document}
 %\section{Objective} \objective
 
-
 \section{Education}
   \education
-    \schoolentry{B.S., Computer Science}{Portland State University}{Expected Graduation: January 2017}
-    \schoolentry{High School Diploma}{Kahuku High \& Intermediate School}{Graduated: 2005}
+  \schoolentry{B.S., Computer Science}{Portland State University} {September 2011 - current} {Portland, OR} {Expected Graduation: January 2017}
+  \schoolentry{High School Diploma}{Kahuku High \& Intermediate School}{Graduated: 2005}{Kahuku, HI}{}
   \fineducation
 
-\section{Skills}
-  \begin{itemize}
-    %\item Expert in:
-    \item Proficient in: C, C$++$, Java, \LaTeX, SQL
-    \item Basic Understanding of: Git, Bash, Python, Haskell
-          %x86-64 GAS Assembler
-          %C$\sharp$
-  \end{itemize}
-
-\section{Projects \& Volunteering}
-  \begin{itemize}
-    \item Wrote a Dice-rolling IRC bot in C
-    \item User Support Volunteer for PSU Computer Action Team. September 2011 -- December 2012
-    \item Association for Computing Machinery -- Portland State University Chapter President, 2012
-  \end{itemize}
-
-\section{Work History}
+\section{Experience}
   \employer{Portland State University -- Computer Action Team}
     \position{Administrative Assistant}{January 2012 -- current}
+      \duty{Led team of 7 user support employees responsible for overseeing help desk volunteers}
       \duty{Facilitated communication between department teams and administration}
-      \duty{Managed keycard access system for 2000+ students}
       \duty{Assisted department with purchasing, inventory, and record keeping}
+      \duty{Managed keycard access system for 2000+ students}
     \position{Volunteer Coordinator}{March 2013 -- April 2014}
-      \duty{Managed group of 120 user support volunteers}
+      \duty{Managed group of 120 help desk volunteers}
       \duty{Evaluated volunteer performance and improvement}
       \duty{Led weekly meetings and scheduled events and IT training classes}
     \position{User Support Specialist}{February 2011 -- March 2013}
+      \duty{Utilized various account management and ticket tracking technologies}
       \duty{Communicated with users at desk and via phone and e-mail}
       \duty{Resolved user IT problems in a friendly, professional manner}
   \employer{Riverstone Residential Group}
     \position{Concierge}{May 2008 -- March 2011}
       \duty{Provided superb customer service for downtown high-rise apartment complex}
-  \employer{Portland Patrol Services}
-    \position{Unarmed Security Officer}{November 2005 -- May 2008}
-      \duty{Monitored variety of sites for unusual activity and provided general security presence}
+%  \employer{Portland Patrol Services}
+%    \position{Unarmed Security Officer}{November 2005 -- May 2008}
+%      \duty{Monitored variety of sites for unusual activity and provided general security presence}
   \finemployment
+
+\section{Projects \& Volunteering}
+  \begin{itemize}
+    \item User Support Volunteer for PSU Computer Action Team. September 2011 -- December 2012
+    \item Year-long IT training program for system administration of Linux and Windows systems
+    \item Association for Computing Machinery -- PSU Chapter President, 2012
+    \item Wrote a Dice-rolling IRC bot in C
+  \end{itemize}
+
+\section{Skills}
+  \begin{itemize}
+    %\item Expert in:
+    \item Proficient in: C, C$++$, Java, \LaTeX, SQL, Git
+    \item Basic Understanding of: Bash, Python, Puppet, Nagios
+          %x86-64 GAS Assembler
+          %C$\sharp$
+  \end{itemize}
 
 %\section{Publications & Projects}
 %\section{Other}
