@@ -12,8 +12,9 @@
 % General Macro Definitions
 \def\name{\Huge \bfseries \scshape Bradley Rasmussen}
 \def\phone{(503) 896-4211}
-\def\email{rasmbj@pdx.edu}
-\def\github{\texttt{http://github.com/bajr/}}
+\def\email{rasmussen.b@gmail.com}
+%\def\email{rasmbj@pdx.edu}
+\def\github{\texttt{https://github.com/bajr/}}
 \def\address{Portland, OR}
 \def\objective{Dedicated computer science student seeking internship in software development}
 
@@ -34,11 +35,13 @@
   \end{tabular}
 }
 
-% Work Experience Layout Definition
+% Work Experience Layout
 % Format:
 % \employer{}
 %   \position{}{}
 %     \duty{}
+% TODO Position Description
+% TODO Key contributions/duties
 % \finemployment
 \newcounter{workdepth}
 \setcounter{workdepth}{0}
@@ -62,12 +65,15 @@
   % Nothing needs to be done if we are at desired depth
 }
 \newcommand{\employer}[1]{
+  \vspace{2mm}
   \checkdepth{1}
   \item{\scshape \bfseries#1}
 }
 \newcommand{\position}[2]{
+  \vspace{2mm}
   \checkdepth{2}
   \item {\textsc{#1} \hfill \textit{#2}}
+  \vspace{2mm}
 }
 \newcommand{\duty}[1]{
   \checkdepth{3}
@@ -83,7 +89,7 @@
   \headsep=1cm
   \renewcommand{\footrulewidth}{0cm}
   \fancyhead[L]{\name}
-  \fancyhead[R]{\phone \ \ $\bullet$ \ \ \email \\ Portland, OR}
+  \fancyhead[R]{\phone \ \ $\bullet$ \ \ \email \\ Portland, OR \ \ $\bullet$ \ \ \github}
 }
 \pagestyle{resume}
 
@@ -95,48 +101,27 @@
 
 \section{Education}
   \education
-  \schoolentry{B.S., Computer Science}{Portland State University} {September 2011 - current} {Portland, OR} {Expected Graduation: January 2017}
-  \schoolentry{High School Diploma}{Kahuku High \& Intermediate School}{Graduated: 2005}{Kahuku, HI}{}
+  \schoolentry{B.S., Computer Science}{Portland State University} {Graduated: June 2020} {Portland, OR}{}
+%  \schoolentry{High School Diploma}{Kahuku High \& Intermediate School}{Graduated: 2005}{Kahuku, HI}{}
   \fineducation
 
 \section{Experience}
-  \employer{Portland State University -- Computer Action Team}
-    \position{Administrative Assistant}{January 2012 -- current}
-      \duty{Led team of 7 user support employees responsible for overseeing help desk volunteers}
-      \duty{Facilitated communication between department teams and administration}
-      \duty{Assisted department with purchasing, inventory, and record keeping}
-      \duty{Managed keycard access system for 2000+ students}
-    \position{Volunteer Coordinator}{March 2013 -- April 2014}
-      \duty{Managed group of 120 help desk volunteers}
-      \duty{Evaluated volunteer performance and improvement}
-      \duty{Led weekly meetings and scheduled events and IT training classes}
-    \position{User Support Specialist}{February 2011 -- March 2013}
-      \duty{Utilized various account management and ticket tracking technologies}
-      \duty{Communicated with users at desk and via phone and e-mail}
-      \duty{Resolved user IT problems in a friendly, professional manner}
-  \employer{Riverstone Residential Group}
-    \position{Concierge}{May 2008 -- March 2011}
-      \duty{Provided superb customer service for downtown high-rise apartment complex}
-%  \employer{Portland Patrol Services}
-%    \position{Unarmed Security Officer}{November 2005 -- May 2008}
-%      \duty{Monitored variety of sites for unusual activity and provided general security presence}
+  \employer{Acquia}
+    \position{Senior Cloud Operations Engineer}{April 2019 -- current}
+    \position{Cloud Operations Engineer}{June 2016 -- April 2019}
+      \duty{Provided daily leadership, training, and guidance to a global team of 20+ engineers}
+      \duty{Wrote and maintained tooling to improve team performance in incident response, documentation, and daily operations}
+      \duty{Led major project to modernize the fleet's hardware, reducing costs by \$2+ million per year}
+      \duty{Managed a fleet of 15,000+ servers providing high-volume, high-availability web applications}
+      \duty{Wrote and maintained an application which synchronized schedules and events between several calendar and ticketing services}
   \finemployment
-
-\section{Projects \& Volunteering}
-  \begin{itemize}
-    \item User Support Volunteer for PSU Computer Action Team. September 2011 -- December 2012
-    \item Year-long IT training program for system administration of Linux and Windows systems
-    \item Association for Computing Machinery -- PSU Chapter President, 2012
-    \item Wrote a Dice-rolling IRC bot in C
-  \end{itemize}
 
 \section{Skills}
   \begin{itemize}
     %\item Expert in:
-    \item Proficient in: C, C$++$, Java, \LaTeX, SQL, Git
-    \item Basic Understanding of: Bash, Python, Puppet, Nagios
-          %x86-64 GAS Assembler
-          %C$\sharp$
+    \item Familiar with: Bash, Ruby, Python, Git
+    \item Proficient in: C, C$++$, Java, \LaTeX, SQL
+    \item Basic Understanding of: Puppet, Nagios
   \end{itemize}
 
 %\section{Publications & Projects}
@@ -147,3 +132,34 @@
 %\References
 
 \end{document}
+
+%%% ARCHIVED INFO
+%  \employer{Portland State University -- Computer Action Team}
+%    \position{Administrative Assistant}{January 2012 -- June 2016}
+%      \duty{Led team of user support employees responsible for overseeing help desk volunteers}
+%      \duty{Facilitated communication between department teams and administration}
+%      \duty{Assisted department with purchasing, inventory, and record keeping}
+%      \duty{Managed keycard access system for 2000+ students}
+%    \position{Volunteer Coordinator}{March 2013 -- April 2014}
+%      \duty{Managed group of 120 help desk volunteers}
+%      \duty{Evaluated volunteer performance and improvement}
+%      \duty{Led weekly meetings and scheduled events and IT training classes for volunteers}
+%    \position{User Support Specialist}{February 2011 -- March 2013}
+%      \duty{Utilized various account management and ticket tracking technologies}
+%      \duty{Communicated with users at desk and via phone and e-mail}
+%      \duty{Resolved user IT problems in a friendly, professional manner}
+%  \employer{Riverstone Residential Group}
+%    \position{Concierge}{May 2008 -- March 2011}
+%      \duty{Provided superb customer service for downtown high-rise apartment complex}
+%  \employer{Portland Patrol Services}
+%    \position{Unarmed Security Officer}{November 2005 -- May 2008}
+%      \duty{Monitored variety of sites for unusual activity and provided general security presence}
+
+%\section{Projects \& Volunteering}
+%  \begin{itemize}
+%    \item User Support Volunteer for PSU Computer Action Team. September 2011 -- December 2012
+%    \item Year-long IT training program for system administration of Linux and Windows systems
+%    \item Association for Computing Machinery -- PSU Chapter President, 2012
+%    \item Wrote a Dice-rolling IRC bot in C
+%  \end{itemize}
+
